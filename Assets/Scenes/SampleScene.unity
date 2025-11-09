@@ -474,7 +474,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 1491490007}
     m_Modifications:
     - target: {fileID: 6279628530006423407, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -494,15 +494,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6279628530006423407, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6279628530006423407, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6279628530006423407, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: 6279628530006423407, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -698,6 +698,7 @@ GameObject:
   - component: {fileID: 1491490007}
   - component: {fileID: 1491490006}
   - component: {fileID: 1491490005}
+  - component: {fileID: 1491490008}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -763,9 +764,26 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 2127837434}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1491490008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1491490004}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c935643ae6bda64bb2000432f499ab6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  lives: 3
+  speed: 6
+  bulletPrefab: {fileID: 0}
+  explosionPrefab: {fileID: 0}
 --- !u!1 &2126917713
 GameObject:
   m_ObjectHideFlags: 0
@@ -919,12 +937,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83daf2064caa75c40ba1a5f40f9551c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Player
-  playerSpeed: 0
-  horizontalInput: 0
-  verticalInput: 0
-  horizontalScreenLimit: 9.5
-  verticalScreenLimit: 6.5
-  bulletPrefab: {fileID: 4917499612935083215, guid: 03f9a44dc41f6e049ae8c9151505ec7c, type: 3}
+--- !u!4 &2127837434 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6279628530006423407, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
+  m_PrefabInstance: {fileID: 781026650}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -935,4 +952,3 @@ SceneRoots:
   - {fileID: 1053172129}
   - {fileID: 1491490007}
   - {fileID: 15350264}
-  - {fileID: 781026650}

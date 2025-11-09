@@ -4,48 +4,51 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-
-    public int lives;
-    private float speed;
-
-    private GameManager gameManager;
-
-    private float horizontalInput;
-    private float verticalInput;
-
+    [Header("Player Settings")]
+    public int lives = 3;
+    public float speed = 6f;
     public GameObject bulletPrefab;
     public GameObject explosionPrefab;
 
-    // Start is called before the first frame update
+    private GameManager gameManager;
+    private float horizontalInput;
+
     void Start()
     {
+        // Find the GameManager
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
-        lives = 3;
-        speed = 5.0f;
+
+        // Spawn player near the bottom of the screen
+        float initialY = -gameManager.verticalScreenSize + 1f; // 1 unit above bottom
+        transform.position = new Vector3(0, initialY, 0);
+
+        // Update UI
         gameManager.ChangeLivesText(lives);
     }
 
-    // Update is called once per frame
     void Update()
     {
-        Movement();
-        Shooting();
+        HandleMovement();
+        HandleShooting();
     }
 
-    public void LoseALife()
+    void HandleMovement()
     {
-        //lives = lives - 1;
-        //lives -= 1;
-        lives--;
-        gameManager.ChangeLivesText(lives);
-        if (lives == 0)
-        {
-            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
-        }
+        // Get horizontal input (A/D or Left/Right)
+        horizontalInput = Input.GetAxis("Horizontal");
+
+        // Move player horizontally
+        transform.Translate(new Vector3(horizontalInput, 0, 0) * speed * Time.deltaTime);
+
+        // Horizontal wrap-around
+        float screenLimit = gameManager.horizontalScreenSize;
+        if (transform.position.x > screenLimit)
+            transform.position = new Vector3(-screenLimit, transform.position.y, 0);
+        else if (transform.position.x < -screenLimit)
+            transform.position = new Vector3(screenLimit, transform.position.y, 0);
     }
 
-    void Shooting()
+    void HandleShooting()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -53,24 +56,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    void Movement()
+    public void LoseALife()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-        verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(new Vector3(horizontalInput, verticalInput, 0) * Time.deltaTime * speed);
+        lives--;
+        gameManager.ChangeLivesText(lives);
 
-        float horizontalScreenSize = gameManager.horizontalScreenSize;
-        float verticalScreenSize = gameManager.verticalScreenSize;
-
-        if (transform.position.x <= -horizontalScreenSize || transform.position.x > horizontalScreenSize)
+        if (lives <= 0)
         {
-            transform.position = new Vector3(transform.position.x * -1, transform.position.y, 0);
+            Instantiate(explosionPrefab, transform.position, Quaternion.identity);
+            Destroy(gameObject);
         }
-
-        if (transform.position.y <= -verticalScreenSize || transform.position.y > verticalScreenSize)
-        {
-            transform.position = new Vector3(transform.position.x, transform.position.y * -1, 0);
-        }
-
     }
 }

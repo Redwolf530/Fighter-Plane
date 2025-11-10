@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8034483730857405335}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -106,8 +106,8 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 1
   m_Enabled: 1
   serializedVersion: 3
   m_Size: {x: 1, y: 1, z: 1}
@@ -126,6 +126,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
   lives: 0
   speed: 0
-  gameManager: {fileID: 2253326521253061098, guid: dadfbd1e90fc9e24cb58a163a1805e31, type: 3}
   bulletPrefab: {fileID: 4917499612935083215, guid: 03f9a44dc41f6e049ae8c9151505ec7c, type: 3}
   explosionPrefab: {fileID: 1269666746337881760, guid: debe062ce403de84682a67a89f311fc5, type: 3}

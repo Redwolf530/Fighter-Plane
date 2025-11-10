@@ -24,7 +24,7 @@ public class Enemy : MonoBehaviour
         //on start select a random enemy type:
         //0: default (moves straight)
         //1: sinusoid (follows a sine wave)
-        type = Random.Range(0, 2);
+        type = Random.Range(0, 3);
 
         //define speed based on type
         if (type == 0)
@@ -57,7 +57,7 @@ public class Enemy : MonoBehaviour
         } else if (type == 1) { // sinusoid enemy
             transform.Translate(Vector3.right * Mathf.Sin(lifetime / 50f) * Time.deltaTime);
         } else if (type == 2) { // reverse sinusoid enemy
-            transform.Translate(Vector3.right * Mathf.Asin(lifetime / 50f) * Time.deltaTime);
+            transform.Translate(Vector3.right * Mathf.Asin(lifetime / 20f) * Time.deltaTime * 5f);
         }
 
         //delete if below screen

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3064563712439108952}
   - component: {fileID: 1481522012758967524}
   - component: {fileID: 5141165257523383718}
+  - component: {fileID: 4688920597025762474}
   - component: {fileID: 7296135623511957593}
   m_Layer: 0
   m_Name: Enemy
@@ -90,6 +91,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &4688920597025762474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8532549055576503109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1980bc83808e13c4f86c784301e6679f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Enemy
+  explosionPrefab: {fileID: 1269666746337881760, guid: debe062ce403de84682a67a89f311fc5, type: 3}
 --- !u!65 &7296135623511957593
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
     // default vars
     private float speed;
     private int type;
+    [SerializeField] private BoxCollider thisCollider;
 
     //lifetime var for movement related stuff
     private int lifetime;
@@ -37,6 +38,7 @@ public class Enemy : MonoBehaviour
             Debug.Log("Unrecognized enemy type!");
             speed = 0f;
         }
+
     }
 
     // Update is called once per frame
@@ -63,15 +65,18 @@ public class Enemy : MonoBehaviour
         lifetime++;
     }
 
-    private void OnTriggerEnter2D(Collider2D whatDidIHit)
+    //fixed collision handling
+    private void OnTriggerEnter(Collider whatDidIHit)
     {
+        Debug.Log("Hit something!!!");
+        Debug.Log("I hit: " + whatDidIHit.tag);
         if (whatDidIHit.tag == "Player")
         {
             whatDidIHit.GetComponent<PlayerController>().LoseALife();
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
         }
-        else if (whatDidIHit.tag == "Weapons")
+        else if (whatDidIHit.tag == "Weapon")
         {
             Destroy(whatDidIHit.gameObject);
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);

@@ -33,6 +33,9 @@ public class Enemy : MonoBehaviour
         } else if (type == 1)
         {
             speed = 1f;
+        } else if (type == 2)
+        {
+            speed = 6f;
         } else
         {
             Debug.Log("Unrecognized enemy type!");
@@ -53,6 +56,8 @@ public class Enemy : MonoBehaviour
             //could make this more interesting if wanted
         } else if (type == 1) { // sinusoid enemy
             transform.Translate(Vector3.right * Mathf.Sin(lifetime / 50f) * Time.deltaTime);
+        } else if (type == 2) { // reverse sinusoid enemy
+            transform.Translate(Vector3.right * Mathf.Asin(lifetime / 50f) * Time.deltaTime);
         }
 
         //delete if below screen

@@ -77,9 +77,9 @@ public class Enemy : MonoBehaviour
         Debug.Log("I hit: " + whatDidIHit.tag);
         if (whatDidIHit.tag == "Player")
         {
+            Destroy(this.gameObject);
             whatDidIHit.GetComponent<PlayerController>().LoseALife();
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
         }
         else if (whatDidIHit.tag == "Weapon")
         {

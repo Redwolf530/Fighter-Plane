@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -65,6 +66,15 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
+        }
+    }
+
+    public void GainALife()
+    {
+        if (lives < 3)
+        {
+            lives++;
+            gameManager.ChangeLivesText(lives);
         }
     }
 }

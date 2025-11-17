@@ -338,7 +338,7 @@ MonoBehaviour:
   enemyOnePrefab: {fileID: 8532549055576503109, guid: 18452987316e1b74d9acbbd8fe1173f7, type: 3}
   cloudPrefab: {fileID: 3736918306455883644, guid: b18caf1aefd934a4d9a7a43984169504, type: 3}
   lifePrefab: {fileID: 1269666746337881760, guid: c44b85b059ee37e4094b1b5be33c4dec, type: 3}
-  coinPrefab: {fileID: 0}
+  coinPrefab: {fileID: 1269666746337881760, guid: c0900cb4c10fab7479af185011dbbf09, type: 3}
   livesText: {fileID: 2126917715}
   scoreText: {fileID: 1548858436}
   horizontalScreenSize: 0
@@ -788,10 +788,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c935643ae6bda64bb2000432f499ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  lives: 1
+  lives: 3
   speed: 6
   bulletPrefab: {fileID: 0}
   explosionPrefab: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!1 &1548858435
 GameObject:
   m_ObjectHideFlags: 0

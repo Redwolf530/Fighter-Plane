@@ -46,18 +46,25 @@ public class PlayerController : MonoBehaviour
 
     void HandleMovement()
     {
-        // Get horizontal input (A/D or Left/Right)
+        // Read horizontal input
         horizontalInput = Input.GetAxis("Horizontal");
 
-        // Move player horizontally
-        transform.Translate(new Vector3(horizontalInput, 0, 0) * speed * Time.deltaTime);
+        // Calculate bottom Y (never change)
+        float bottomY = -gameManager.verticalScreenSize + 1f;
+
+        // Move horizontally ONLY
+        transform.position = new Vector3(
+            transform.position.x + (horizontalInput * speed * Time.deltaTime),
+            bottomY,
+            0
+        );
 
         // Horizontal wrap-around
         float screenLimit = gameManager.horizontalScreenSize;
         if (transform.position.x > screenLimit)
-            transform.position = new Vector3(-screenLimit, transform.position.y, 0);
+            transform.position = new Vector3(-screenLimit, bottomY, 0);
         else if (transform.position.x < -screenLimit)
-            transform.position = new Vector3(screenLimit, transform.position.y, 0);
+            transform.position = new Vector3(screenLimit, bottomY, 0);
     }
 
     void HandleShooting()

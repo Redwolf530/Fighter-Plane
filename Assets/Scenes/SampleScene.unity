@@ -937,7 +937,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c935643ae6bda64bb2000432f499ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  lives: 3
+  lives: 1
   speed: 6
   bulletPrefab: {fileID: 0}
   explosionPrefab: {fileID: 0}

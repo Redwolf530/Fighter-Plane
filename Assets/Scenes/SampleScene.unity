@@ -337,6 +337,8 @@ MonoBehaviour:
   playerPrefab: {fileID: 7337985662234728107, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
   enemyOnePrefab: {fileID: 8532549055576503109, guid: 18452987316e1b74d9acbbd8fe1173f7, type: 3}
   cloudPrefab: {fileID: 3736918306455883644, guid: b18caf1aefd934a4d9a7a43984169504, type: 3}
+  lifePrefab: {fileID: 1269666746337881760, guid: 6f9d3901d90904d459a792d49678b396, type: 3}
+  coinPrefab: {fileID: 1269666746337881760, guid: c0900cb4c10fab7479af185011dbbf09, type: 3}
   livesText: {fileID: 2126917715}
   scoreText: {fileID: 738447666}
   horizontalScreenSize: 0
@@ -658,20 +660,37 @@ PrefabInstance:
       value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 8034483730857405335, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
+      propertyPath: lives
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034483730857405335, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
+      propertyPath: speed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034483730857405335, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8034483730857405335, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
       propertyPath: gameManager
       value: 
-      objectReference: {fileID: 338042402}
-    m_RemovedComponents: []
+      objectReference: {fileID: 0}
+    - target: {fileID: 8034483730857405335, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 4917499612935083215, guid: 03f9a44dc41f6e049ae8c9151505ec7c, type: 3}
+    - target: {fileID: 8034483730857405335, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
+      propertyPath: explosionPrefab
+      value: 
+      objectReference: {fileID: 1269666746337881760, guid: debe062ce403de84682a67a89f311fc5, type: 3}
+    m_RemovedComponents:
+    - {fileID: 8034483730857405335, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7337985662234728107, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2127837429}
+      addedObject: {fileID: 2127837439}
   m_SourcePrefab: {fileID: 100100000, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
 --- !u!1 &832575517
 GameObject:
@@ -899,7 +918,7 @@ Transform:
   m_GameObject: {fileID: 1491490004}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -5.41, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -922,6 +941,7 @@ MonoBehaviour:
   speed: 6
   bulletPrefab: {fileID: 0}
   explosionPrefab: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!1 &2126917713
 GameObject:
   m_ObjectHideFlags: 0
@@ -1063,23 +1083,28 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7337985662234728107, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
   m_PrefabInstance: {fileID: 781026650}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2127837429
+--- !u!4 &2127837434 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6279628530006423407, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
+  m_PrefabInstance: {fileID: 781026650}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2127837439
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2127837422}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83daf2064caa75c40ba1a5f40f9551c7, type: 3}
+  m_Script: {fileID: 11500000, guid: ea50340470bce0f4eb8b42283c0a8be5, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Player
---- !u!4 &2127837434 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6279628530006423407, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
-  m_PrefabInstance: {fileID: 781026650}
-  m_PrefabAsset: {fileID: 0}
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerController
+  lives: 3
+  speed: 6
+  bulletPrefab: {fileID: 4917499612935083215, guid: 03f9a44dc41f6e049ae8c9151505ec7c, type: 3}
+  explosionPrefab: {fileID: 1269666746337881760, guid: debe062ce403de84682a67a89f311fc5, type: 3}
+  gameManager: {fileID: 338042402}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

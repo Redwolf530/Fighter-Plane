@@ -10,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject explosionPrefab;
 
-    private GameManager gameManager;
+    public GameManager gameManager;
     private float horizontalInput;
 
     void Start()
@@ -25,6 +25,18 @@ public class PlayerController : MonoBehaviour
         // Update UI
         gameManager.ChangeLivesText(lives);
     }
+    public void GainALife()
+    {
+        lives++;
+        gameManager.ChangeLivesText(lives);
+    }
+    public void AddLife()
+    {
+        lives++;
+        if (gameManager != null)
+            gameManager.ChangeLivesText(lives);
+    }
+
 
     void Update()
     {

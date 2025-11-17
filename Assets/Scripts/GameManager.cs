@@ -12,12 +12,11 @@ public class GameManager : MonoBehaviour
     public GameObject cloudPrefab;
 
     public TextMeshProUGUI livesText;
-    public TextMeshProUGUI scoreText;
 
     public float horizontalScreenSize;
     public float verticalScreenSize;
 
-    public int score = 0;
+    public int score;
 
     // Start is called before the first frame update
     void Start()
@@ -49,10 +48,9 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    public void AddScore(int points)
+    public void AddScore(int earnedScore)
     {
-        score += points;
-        scoreText.text = "Score: " + score;
+        score = score + earnedScore;
     }
 
     public void ChangeLivesText(int currentLives)

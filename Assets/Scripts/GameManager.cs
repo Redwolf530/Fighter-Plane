@@ -10,6 +10,10 @@ public class GameManager : MonoBehaviour
     public GameObject playerPrefab;
     public GameObject enemyOnePrefab;
     public GameObject cloudPrefab;
+<<<<<<< Updated upstream
+=======
+    public GameObject lifePrefab;
+>>>>>>> Stashed changes
     public GameObject coinPrefab;
 
     [Header("Coin Settings")]
@@ -40,8 +44,30 @@ public class GameManager : MonoBehaviour
 
         // Create sky, enemies, and coins
         CreateSky();
+<<<<<<< Updated upstream
         InvokeRepeating("CreateEnemy", 1f, 3f);
         InvokeRepeating("SpawnCoin", 2f, coinSpawnInterval);
+=======
+        InvokeRepeating("CreateEnemy", 1, 3);
+        InvokeRepeating("CreateLife", 10, 15);
+        StartCoroutine(SpawnCoinsRoutine());
+    }
+    IEnumerator SpawnCoinsRoutine()
+    {
+        while (true)
+        {
+            // Wait for a random time before spawning a coin
+            float waitTime = Random.Range(8f, 20f);  // you can tweak these numbers
+            yield return new WaitForSeconds(waitTime);
+
+            CreateCoin();
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+>>>>>>> Stashed changes
 
         // Adjust camera
         Camera.main.orthographic = true;
@@ -57,6 +83,12 @@ public class GameManager : MonoBehaviour
             0
         );
         Instantiate(enemyOnePrefab, spawnPos, Quaternion.Euler(180, 0, 0));
+    }
+
+    void CreateCoin ()
+    {
+        Instantiate(coinPrefab, new Vector3(Random.Range(-horizontalScreenSize, horizontalScreenSize) * 0.9f, verticalScreenSize, 0), Quaternion.Euler(180, 0, 0));
+
     }
 
     void CreateSky()

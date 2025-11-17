@@ -337,9 +337,15 @@ MonoBehaviour:
   playerPrefab: {fileID: 7337985662234728107, guid: 5d75ce0a45f381d4cbaa554a3a04c1cc, type: 3}
   enemyOnePrefab: {fileID: 8532549055576503109, guid: 18452987316e1b74d9acbbd8fe1173f7, type: 3}
   cloudPrefab: {fileID: 3736918306455883644, guid: b18caf1aefd934a4d9a7a43984169504, type: 3}
+<<<<<<< Updated upstream
   coinPrefab: {fileID: 0}
   coinSpawnInterval: 5
   livesText: {fileID: 0}
+=======
+  lifePrefab: {fileID: 1269666746337881760, guid: c44b85b059ee37e4094b1b5be33c4dec, type: 3}
+  coinPrefab: {fileID: 2394817965727160862, guid: 538df8215a76cbf45b54b710de98b75a, type: 3}
+  livesText: {fileID: 2126917715}
+>>>>>>> Stashed changes
   horizontalScreenSize: 0
   verticalScreenSize: 0
   score: 0

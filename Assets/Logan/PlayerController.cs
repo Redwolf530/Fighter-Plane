@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
             gameManager.ChangeLivesText(lives);
     }
 
+
     void Update()
     {
         HandleMovement();

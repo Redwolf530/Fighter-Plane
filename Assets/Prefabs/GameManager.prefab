@@ -48,6 +48,7 @@ MonoBehaviour:
   enemyOnePrefab: {fileID: 8532549055576503109, guid: 18452987316e1b74d9acbbd8fe1173f7, type: 3}
   cloudPrefab: {fileID: 3736918306455883644, guid: b18caf1aefd934a4d9a7a43984169504, type: 3}
   lifePrefab: {fileID: 1269666746337881760, guid: c44b85b059ee37e4094b1b5be33c4dec, type: 3}
+  coinPrefab: {fileID: 2356052773995667780, guid: 47ac28dba5c40654e8ba263a06f0d949, type: 3}
   livesText: {fileID: 0}
   horizontalScreenSize: 0
   verticalScreenSize: 0

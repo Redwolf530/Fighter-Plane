@@ -11,6 +11,7 @@ public class GameManager : MonoBehaviour
     public GameObject enemyOnePrefab;
     public GameObject cloudPrefab;
     public GameObject lifePrefab;
+    public GameObject coinPrefab;
 
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI scoreText;
@@ -30,6 +31,18 @@ public class GameManager : MonoBehaviour
         CreateSky();
         InvokeRepeating("CreateEnemy", 1, 3);
         InvokeRepeating("CreateLife", 10, 15);
+        StartCoroutine(SpawnCoinsRoutine());
+    }
+    IEnumerator SpawnCoinsRoutine()
+    {
+        while (true)
+        {
+            // Wait for a random time before spawning a coin
+            float waitTime = Random.Range(8f, 20f);  // you can tweak these numbers
+            yield return new WaitForSeconds(waitTime);
+
+            CreateCoin();
+        }
     }
 
     // Update is called once per frame
@@ -46,6 +59,14 @@ public class GameManager : MonoBehaviour
     void CreateLife()
     {
         Instantiate(lifePrefab, new Vector3(Random.Range(-horizontalScreenSize, horizontalScreenSize) * 0.9f, verticalScreenSize, 0), Quaternion.Euler(180, 0, 0));
+    }
+
+    void CreateCoin()
+    {
+        Instantiate(coinPrefab,
+            new Vector3(Random.Range(-horizontalScreenSize, horizontalScreenSize) * 0.9f,
+            verticalScreenSize, 0),
+            Quaternion.Euler(180, 0, 0));
     }
 
     void CreateSky()

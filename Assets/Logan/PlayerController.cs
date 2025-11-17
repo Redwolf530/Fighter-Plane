@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class PlayerController : MonoBehaviour
 {
@@ -11,7 +10,7 @@ public class PlayerController : MonoBehaviour
     public GameObject bulletPrefab;
     public GameObject explosionPrefab;
 
-    private GameManager gameManager;
+    public GameManager gameManager;
     private float horizontalInput;
 
     void Start()
@@ -26,6 +25,18 @@ public class PlayerController : MonoBehaviour
         // Update UI
         gameManager.ChangeLivesText(lives);
     }
+    public void GainALife()
+    {
+        lives++;
+        gameManager.ChangeLivesText(lives);
+    }
+    public void AddLife()
+    {
+        lives++;
+        if (gameManager != null)
+            gameManager.ChangeLivesText(lives);
+    }
+
 
     void Update()
     {
@@ -66,15 +77,6 @@ public class PlayerController : MonoBehaviour
         {
             Instantiate(explosionPrefab, transform.position, Quaternion.identity);
             Destroy(gameObject);
-        }
-    }
-
-    public void GainALife()
-    {
-        if (lives < 3)
-        {
-            lives++;
-            gameManager.ChangeLivesText(lives);
         }
     }
 }

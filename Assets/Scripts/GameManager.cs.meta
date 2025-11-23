@@ -8,7 +8,11 @@ MonoImporter:
   - enemyOnePrefab: {fileID: 8532549055576503109, guid: 18452987316e1b74d9acbbd8fe1173f7, type: 3}
   - cloudPrefab: {fileID: 3736918306455883644, guid: b18caf1aefd934a4d9a7a43984169504, type: 3}
   - lifePrefab: {fileID: 1269666746337881760, guid: c44b85b059ee37e4094b1b5be33c4dec, type: 3}
+  - coinPrefab: {fileID: 1269666746337881760, guid: c0900cb4c10fab7479af185011dbbf09, type: 3}
+  - shieldPowerUpPrefab: {fileID: 1269666746337881760, guid: 639aa7f13e15df1439a7be7d5e1691c7, type: 3}
   - livesText: {instanceID: 0}
+  - scoreText: {instanceID: 0}
+  - shieldText: {instanceID: 0}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

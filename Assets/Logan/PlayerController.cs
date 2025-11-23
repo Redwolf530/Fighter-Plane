@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
     public float speed = 6f;
     public GameObject bulletPrefab;
     public GameObject explosionPrefab;
+    private bool isShielded = false;
+    private float shieldTimer = 0f;
+
+    public GameObject shieldVisual;
 
     public GameManager gameManager;
     private float horizontalInput;
@@ -24,6 +28,22 @@ public class PlayerController : MonoBehaviour
 
         // Update UI
         gameManager.ChangeLivesText(lives);
+    }
+    public void ActivateShield(float duration)
+    {
+        Debug.Log("ActivateShield() called with duration: " + duration);
+        Debug.Log("shieldVisual: " + shieldVisual);
+        isShielded = true;
+        shieldTimer = duration;
+
+        if (shieldVisual != null)
+            shieldVisual.SetActive(true);
+
+        if (shieldTimer <= 0)
+        {
+            isShielded = false;
+            shieldVisual.SetActive(false);
+        }
     }
     public void GainALife()
     {
@@ -42,6 +62,22 @@ public class PlayerController : MonoBehaviour
     {
         HandleMovement();
         HandleShooting();
+        HandleMovement();
+        HandleShooting();
+        HandleShieldTimer();
+    }
+    void HandleShieldTimer()
+    {
+        if (isShielded)
+        {
+            shieldTimer -= Time.deltaTime;
+            if (shieldTimer <= 0f)
+            {
+                isShielded = false;
+                if (shieldVisual != null)
+                    shieldVisual.SetActive(false);
+            }
+        }
     }
 
     void HandleMovement()
@@ -77,6 +113,9 @@ public class PlayerController : MonoBehaviour
 
     public void LoseALife()
     {
+        if (isShielded)
+            return; // Shield absorbs the hit
+
         lives--;
         gameManager.ChangeLivesText(lives);
 

@@ -12,14 +12,17 @@ public class GameManager : MonoBehaviour
     public GameObject cloudPrefab;
     public GameObject lifePrefab;
     public GameObject coinPrefab;
+    public GameObject shieldPrefab;
 
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI shieldText;
 
     public float horizontalScreenSize;
     public float verticalScreenSize;
 
     public int score = 0;
+    public int sheld = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +34,7 @@ public class GameManager : MonoBehaviour
         CreateSky();
         InvokeRepeating("CreateEnemy", 1, 3);
         InvokeRepeating("CreateLife", 10, 15);
+        InvokeRepeating("CreateShield", 4, 13);
         StartCoroutine(SpawnCoinsRoutine());
     }
     IEnumerator SpawnCoinsRoutine()
@@ -86,5 +90,9 @@ public class GameManager : MonoBehaviour
     public void ChangeLivesText(int currentLives)
     {
         livesText.text = "Lives: " + currentLives;
+    }
+     public void ChangeShieldText(int currentShields)
+    {
+        livesText.text = "Shields: " + currentShields;
     }
 }

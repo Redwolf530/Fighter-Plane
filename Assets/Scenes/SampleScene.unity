@@ -874,12 +874,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c935643ae6bda64bb2000432f499ab6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  lives: 3
-  speed: 6
-  bulletPrefab: {fileID: 0}
-  explosionPrefab: {fileID: 0}
-  shieldVisual: {fileID: 0}
-  gameManager: {fileID: 0}
 --- !u!1 &1548858435
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,7 +1007,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -390}
+  m_AnchoredPosition: {x: 100, y: -351.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2126917713
@@ -1050,7 +1044,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 100, y: -426.5}
+  m_AnchoredPosition: {x: 100, y: -387.9}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2126917715

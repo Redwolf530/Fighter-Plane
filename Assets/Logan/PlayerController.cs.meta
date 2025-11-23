@@ -1,2 +1,15 @@
 fileFormatVersion: 2
 guid: ea50340470bce0f4eb8b42283c0a8be5
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - bulletPrefab: {instanceID: 0}
+  - explosionPrefab: {instanceID: 0}
+  - shieldVisual: {fileID: 8240925289541828996, guid: 8ea0e797023ab724ea2ac816831171ff, type: 3}
+  - gameManager: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

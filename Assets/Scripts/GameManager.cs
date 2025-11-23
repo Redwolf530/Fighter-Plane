@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     public GameObject cloudPrefab;
     public GameObject lifePrefab;
     public GameObject coinPrefab;
-    public GameObject shieldPrefab;
+    public GameObject shieldPowerUpPrefab;
 
     public TextMeshProUGUI livesText;
     public TextMeshProUGUI scoreText;
@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         CreateSky();
         InvokeRepeating("CreateEnemy", 1, 3);
         InvokeRepeating("CreateLife", 10, 15);
-        InvokeRepeating("CreateShield", 4, 13);
+        InvokeRepeating("SpawnShieldPowerUp", 5f, 10f);
         StartCoroutine(SpawnCoinsRoutine());
     }
     IEnumerator SpawnCoinsRoutine()
@@ -91,8 +91,14 @@ public class GameManager : MonoBehaviour
     {
         livesText.text = "Lives: " + currentLives;
     }
-     public void ChangeShieldText(int currentShields)
+    void SpawnShieldPowerUp()
     {
-        livesText.text = "Shields: " + currentShields;
+        Vector3 spawnPos = new Vector3(
+            Random.Range(-horizontalScreenSize, horizontalScreenSize),
+            verticalScreenSize,
+            0
+        );
+
+        Instantiate(shieldPowerUpPrefab, spawnPos, Quaternion.identity);
     }
 }

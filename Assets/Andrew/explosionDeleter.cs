@@ -10,7 +10,7 @@ public class explosionDeleter : MonoBehaviour
 
     void Start()
     {
-        maxLife = 30;
+        maxLife = 90;
     }
 
     // Update is called once per frame

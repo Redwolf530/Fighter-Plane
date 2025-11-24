@@ -49,7 +49,8 @@ public class CoinManager : MonoBehaviour
         if (whatDidIHit.tag == "Player")
         {
             // SCORE ONLY – no life added
-            gameManager.AddScore(scoreValue);
+            gameManager.AddScore(scoreValue, "coin");
+
 
             // Destroy coin after collecting
             Destroy(this.gameObject);

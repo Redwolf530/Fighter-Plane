@@ -17,6 +17,11 @@ public class PlayerController : MonoBehaviour
     public GameManager gameManager;
     private float horizontalInput;
 
+    [SerializeField] public AudioSource shootingSFX;
+    [SerializeField] public AudioSource shieldStartSFX;
+    [SerializeField] public AudioSource shieldEndSFX;
+    [SerializeField] public AudioSource lifeSFX;
+
     void Start()
     {
         // Find the GameManager
@@ -36,6 +41,8 @@ public class PlayerController : MonoBehaviour
         isShielded = true;
         shieldTimer = duration;
 
+        shieldStartSFX.Play();
+
         if (shieldVisual != null)
             shieldVisual.SetActive(true);
 
@@ -47,16 +54,14 @@ public class PlayerController : MonoBehaviour
     }
     public void GainALife()
     {
-        lives++;
-        gameManager.ChangeLivesText(lives);
-    }
-    public void AddLife()
-    {
-        lives++;
-        if (gameManager != null)
+        if (lives < 3)
+        {
+            lives++;
+            lifeSFX.Play();
             gameManager.ChangeLivesText(lives);
-    }
+        }
 
+    }
 
     void Update()
     {
@@ -74,6 +79,7 @@ public class PlayerController : MonoBehaviour
             if (shieldTimer <= 0f)
             {
                 isShielded = false;
+                shieldEndSFX.Play();
                 if (shieldVisual != null)
                     shieldVisual.SetActive(false);
             }
@@ -108,6 +114,7 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Instantiate(bulletPrefab, transform.position + new Vector3(0, 0.5f, 0), Quaternion.identity);
+            shootingSFX.Play();
         }
     }
 

@@ -24,6 +24,8 @@ public class GameManager : MonoBehaviour
     public int score = 0;
     public int sheld = 0;
 
+    [SerializeField] public AudioSource coinSFX;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,9 +35,11 @@ public class GameManager : MonoBehaviour
         //Instantiate(playerPrefab, transform.position, Quaternion.identity);
         CreateSky();
         InvokeRepeating("CreateEnemy", 1, 3);
-        InvokeRepeating("CreateLife", 10, 15);
+        InvokeRepeating("CreateLife", 10, 13);
         InvokeRepeating("SpawnShieldPowerUp", 5f, 10f);
         StartCoroutine(SpawnCoinsRoutine());
+
+        scoreText.text = "Score: " + score;
     }
     IEnumerator SpawnCoinsRoutine()
     {
@@ -81,10 +85,14 @@ public class GameManager : MonoBehaviour
         }
 
     }
-    public void AddScore(int points)
+    public void AddScore(int points, string source = "none")
     {
         score += points;
         scoreText.text = "Score: " + score;
+        if (source == "coin")
+        {
+            coinSFX.Play();
+        }
     }
 
     public void ChangeLivesText(int currentLives)

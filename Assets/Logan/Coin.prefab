@@ -153,5 +153,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37c5dca29d7dce6469fd15cd61c85395, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinManager
-  thisCollider: {fileID: 0}
+  thisCollider: {fileID: 6453937520931189430}
+  coinSFX: {fileID: 0}
   scoreValue: 10
